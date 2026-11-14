@@ -10,6 +10,9 @@ interface Props {
 }
 
 const { title, isMobileHeader = false } = Astro.props;
+const siteName = "ゆびテン 指点字学習アプリ";
+
+const pageTitle = title ? `${title}｜${siteName}` : siteName;
 ---
 
 <!doctype html>
@@ -19,7 +22,7 @@ const { title, isMobileHeader = false } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
     {isMobileHeader ? (
