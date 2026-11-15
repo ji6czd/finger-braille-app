@@ -281,10 +281,16 @@ import keyboardPlacement from "../assets/keyboard-placement.svg";
       color: var(--color-darkgray);
     }
 
-    /* ボタンのデザイン */
-    .cta-wrapper,
     .main-nav {
       margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px 32px;
+      width: 100%;
+    }
+    .main-nav a {
+      flex: 1 1 270px;
+      text-align: center;
     }
   </style>
 </Layout>
