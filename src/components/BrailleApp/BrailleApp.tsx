@@ -83,7 +83,7 @@ const BrailleAppContent: FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>指点字練習(PC版)</h1>
+      <h1>指点字練習(PC版)</h1>
       <p className={styles.description}>
         パソコンのキーボードを使って、練習ができます
         <br />→
