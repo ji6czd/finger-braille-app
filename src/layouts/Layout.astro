@@ -1,18 +1,19 @@
 ---
-import Header from "../components/layout/Header.astro";
-import MobileHeader from "../components/layout/MobileHeader.astro";
-import "kiso.css";
-import "../styles/global.css";
+const {
+  title,
+  siteDescription = "指点字（ゆびてんじ）の入力を練習するためのWebアプリケーションです。",
+  ogpDescription,
+  ogpImage = "/ogp-default.png",
+  isMobileHeader = false,
+} = Astro.props;
 
-interface Props {
-  title: string;
-  isMobileHeader?: boolean; // スマホ専用ヘッダーを使うフラグ
-}
-
-const { title, isMobileHeader = false } = Astro.props;
 const siteName = "ゆびテン 指点字学習アプリ";
-
 const pageTitle = title ? `${title}｜${siteName}` : siteName;
+const description = ogpDescription || siteDescription;
+
+// canonicalや、og:imageではフルパスが必要なため。生成する
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(ogpImage, Astro.site);
 ---
 
 <!doctype html>
@@ -22,7 +23,26 @@ const pageTitle = title ? `${title}｜${siteName}` : siteName;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+
+    {/* 基本メタタグ */}
     <title>{pageTitle}</title>
+    <meta name="description" content={siteDescription} />
+    <link rel="canonical" href={canonicalURL} />
+
+    {/* OGP（SNSシェア用） */}
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="ja_JP" />
+
+    {/* Twitter Card */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
   </head>
   <body>
     {isMobileHeader ? (
