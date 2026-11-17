@@ -24,7 +24,7 @@ const siteName = "ゆびテン 指点字学習アプリ";
 const pageTitle = title ? `${title}｜${siteName}` : siteName;
 const description = ogpDescription || siteDescription;
 
-// canonicalや、og:imageではフルパスが必要なため
+// canonicalや、og:imageではフルパスが必要なため、URLを生成する
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogpImage, Astro.site);
 ---
