@@ -97,6 +97,33 @@ import keyboardPlacement from "../assets/keyboard-placement.svg";
           左手の人差し指を<strong>Fキー</strong>、右手の人差し指を<strong>Jキー</strong>に置いて練習します。
         </p>
       </section>
+
+      <section class="info-card touch-card">
+        <h2>タッチ操作について</h2>
+        <p>ボタンのタップで入力できます。</p>
+        <p>
+          このウェブアプリは、PWA（Progressive Web App：プログレッシブウェブアプリ）に対応しています。<br/>スマホの練習画面をホーム画面に追加すると、他のウェブサイトといったタブが表示されず、インストールしたアプリのような操作感で使用することができます。
+        </p>
+
+        <div class="pwa-guide">
+          <h3>iPhone (Safari) の場合</h3>
+          <p>※Chromeでも同様の手順です</p>
+          <ol class="pwa-steps">
+            <li>Safariでページを開く</li>
+            <li>画面下部の<strong>「共有」ボタン</strong>をタップする</li>
+            <li>メニュー内にある<strong>「ホーム画面に追加」</strong>を選択する</li>
+            <li>「Webアプリとして開く」をONにして、右上の<strong>「追加」</strong>をタップする</li>
+          </ol>
+
+          <h3>Android (Chrome) の場合</h3>
+          <ol class="pwa-steps">
+            <li>Chromeでページを開く</li>
+            <li>画面右上の縦の三点リーダー（メニューアイコン）をタップする</li>
+            <li>メニュー内にある<strong>「アプリをインストール」</strong>または<strong>「ホーム画面に追加」</strong>を選択する</li>
+            <li>表示される確認画面で<strong>「インストール」</strong>または<strong>「追加」</strong>をタップする</li>
+          </ol>
+        </div>
+      </section>
     </div>
 
     <div class="main-nav">
@@ -291,6 +318,28 @@ import keyboardPlacement from "../assets/keyboard-placement.svg";
     .main-nav a {
       flex: 1 1 270px;
       text-align: center;
+    }
+
+    /* タッチ操作・PWAガイド用のスタイル */
+    .touch-card h3 {
+      font-size: 1rem;
+      color: var(--color-sub-header-text);
+      margin-top: 1rem;
+      margin-bottom: 0.3rem;
+      font-weight: bold;
+    }
+
+    .pwa-steps {
+      margin: 0.3rem 0 0.8rem 1.2rem;
+      padding: 0;
+      color: var(--color-darkgray);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      list-style-type: decimal; /* 必要に応じて disc (中黒) や decimal (数字) に切り替え可能 */
+    }
+
+    .pwa-steps li {
+      margin-bottom: 0.2rem;
     }
   </style>
 </Layout>
