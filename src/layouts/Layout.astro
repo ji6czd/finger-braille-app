@@ -1,4 +1,17 @@
 ---
+import Header from "../components/layout/Header.astro";
+import MobileHeader from "../components/layout/MobileHeader.astro";
+import "kiso.css";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  siteDescription?: string; // SEO用
+  ogpDescription?: string;  // SNSシェア用
+  ogpImage?: string;
+  isMobileHeader?: boolean; // スマホ専用ヘッダーを使うフラグ
+}
+
 const {
   title,
   siteDescription = "指点字（ゆびてんじ）の入力を練習するためのWebアプリケーションです。",
@@ -11,7 +24,7 @@ const siteName = "ゆびテン 指点字学習アプリ";
 const pageTitle = title ? `${title}｜${siteName}` : siteName;
 const description = ogpDescription || siteDescription;
 
-// canonicalや、og:imageではフルパスが必要なため。生成する
+// canonicalや、og:imageではフルパスが必要なため
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogpImage, Astro.site);
 ---
