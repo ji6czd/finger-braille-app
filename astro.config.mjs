@@ -3,7 +3,11 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import { AstroPWAIntegration } from '@vite-pwa/astro';
 
+// デプロイ環境や環境変数からURLを取得。なければローカル用フォールバック
+const siteUrl = process.env.SITE_URL || process.env.CF_PAGES_URL || 'http://localhost:4321';
+
 export default defineConfig({
+  site: siteUrl,
   integrations: [
     react(),
     AstroPWAIntegration({
