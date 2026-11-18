@@ -102,7 +102,7 @@ export const createDakuonData = (char: string): BrailleData => {
   const isHandakuon = ['ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ'].includes(char);
   const fuKey = isHandakuon ? '半濁音符' : '濁音符';
   const fuHex = isHandakuon ? brailleCodes.handakuonFu : brailleCodes.dakuonFu;
-  
+
   const baseChar = baseHiraganaMap[char] || char;
   const baseHex = hiraganaTable[baseChar] ?? 0x00;
 
@@ -216,14 +216,14 @@ const commentMapSuji: Record<string, string> = {
 
   '1': 'ひらがなの「あ」に同じ\n【ゴロ】い(1)「あ」いあ！',
   '2': 'ひらがなの「い」に同じ\n【ゴロ】に(2)「い」にい',
-  '3': 'ひらがなの「う」に同じ\n【ゴロ】さん(3)「う」（山雨）',
-  '4': 'ひらがなの「る」に同じ\n【ゴロ】し(4)「る」（知る）',
+  '3': 'ひらがなの「う」に同じ\n【ゴロ】さん(3)「う」',
+  '4': 'ひらがなの「る」に同じ\n【ゴロ】し(4)「る」',
   '5': 'ひらがなの「ら」に同じ\n【ゴロ】コ(5)ー「ラ」',
-  '6': 'ひらがなの「え」に同じ\n【ゴロ】ろく(6)「え」ん（6円）',
-  '7': 'ひらがなの「れ」に同じ\n【ゴロ】な(7)「れ」（慣れ）',
-  '8': 'ひらがなの「り」に同じ\n【ゴロ】は(8)「り」（針）',
+  '6': 'ひらがなの「え」に同じ\n【ゴロ】ろく(6)「え」ん',
+  '7': 'ひらがなの「れ」に同じ\n【ゴロ】な(7)「れ」',
+  '8': 'ひらがなの「り」に同じ\n【ゴロ】は(8)「り」',
   '9': 'ひらがなの「お」に同じ\n【ゴロ】ク(9)「オ」カード',
-  '0': 'ひらがなの「ろ」に同じ\n【ゴロ】ぜ「ろ」（零）',
+  '0': 'ひらがなの「ろ」に同じ\n【ゴロ】ぜ「ろ」',
 };
 
 // 点字表用（数字用の記号のマッピング）
@@ -320,7 +320,7 @@ export const generateRyakugoComment = (word: string): string => {
       return hexCode !== undefined ? hexToHiraganaMap[hexCode] || char : char;
     })
     .join('');
-  
+
   return `ひらがなでは「${hiraganaStr}」`;
 };
 
@@ -417,7 +417,7 @@ export const specialHiraganaMap: Record<string, SpecialBrailleConfig> = {
   'うぃ': { fuKey: '疑問符', fuHex: 0x22, baseChar: 'い' },
   'うぇ': { fuKey: '疑問符', fuHex: 0x22, baseChar: 'え' },
   'うぉ': { fuKey: '疑問符', fuHex: 0x22, baseChar: 'お' },
-  
+
   // kw系特殊音（疑問符 [2,6] ＋ か行）
   'くぁ': { fuKey: '疑問符', fuHex: 0x22, baseChar: 'か' },
   'くぃ': { fuKey: '疑問符', fuHex: 0x22, baseChar: 'き' },

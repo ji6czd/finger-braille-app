@@ -19,7 +19,7 @@ interface BrailleTableProps {
     id: string; // アンカーリンク用のID
     tableData: BrailleRowData[]; // 表示する表データを受け取る
     description?: string; // 補足説明（オプショナル）
-} 
+}
 
 const BrailleTable: FC<BrailleTableProps> = ({h2_text, id, tableData, description}) => {
     return (
@@ -28,11 +28,11 @@ const BrailleTable: FC<BrailleTableProps> = ({h2_text, id, tableData, descriptio
             {description && (
                 <p className={styles.tableDescription}>{description}</p>
             )}
-            
+
             <div className={styles.tableContent}>
                 {/* propsで渡された tableData をマップして表示 */}
                 {tableData.map((rowData) => (
-                    <BrailleRow 
+                    <BrailleRow
                         key={rowData.category}
                         category={rowData.category}
                         cells={rowData.cells}
